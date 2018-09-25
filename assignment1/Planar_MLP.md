@@ -436,7 +436,7 @@ def compute_cost(A2, Y, parameters):
     # Compute the cross-entropy cost
     ### START CODE HERE ### (≈ 2 lines of code)
     logprobs = np.multiply(np.log(A2), Y) + np.multiply(np.log(1-A2), (1-Y))
-    cost = -(1.0 / m) * np.sum(lpgprobs)
+    cost = -(1.0 / m) * np.sum(logprobs)
     ### END CODE HERE ###
     
     cost = np.squeeze(cost)     # makes sure cost is the dimension we expect. 
