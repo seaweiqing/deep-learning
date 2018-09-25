@@ -73,8 +73,8 @@ Lets first get a better sense of what our data is like.
 
 ```{.python .input  n=5}
 ### START CODE HERE ### (≈ 3 lines of code)
-shape_X = X.shape()
-shape_Y = Y.shape()
+shape_X = X.shape
+shape_Y = Y.shape
 m = X.shape[1]
 ### END CODE HERE ###
 
