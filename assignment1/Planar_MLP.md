@@ -732,7 +732,7 @@ def nn_model(X, Y, n_h, num_iterations=10000, print_cost=False):
         # Backpropagation. Inputs: "parameters, cache, X, Y". Outputs: "grads".
         grads = backward_propagation(parameters, cache, X, Y)
         # Gradient descent parameter update. Inputs: "parameters, grads". Outputs: "parameters".
-        parameters = update_parameters(parameters, gards, learning_rate = 1.2)
+        parameters = update_parameters(parameters, grads, learning_rate = 1.2)
         ### END CODE HERE ###
         
         # Print the cost every 1000 iterations
