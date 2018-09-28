@@ -923,13 +923,23 @@ Nice work!
 Based on the tutorial MLP.md on course, please rewrite the above functions, i.e., initialize_parameters, forward_propagation, compute_cost, backward_propagation, on mxnet platform and using autograd to do params update with the best hidden layer size 5. And compare the accuracy obtained on Mxnet and about accuracy while hidden layer size is 5.
 
 ```{.python .input  n=8}
-import mxnet as mx
-import numpy as np
-from mxnet import nd, autograd, gluon
+from keras import optimizers
+from keras import models
+from keras import layers
+from testCases import *
+from planar_utils import load_planar_dataset
 
-###### start your code
+np.random.seed(1)
+X, Y = load_planar_dataset()
+n_x = X.shape[0]
+n_h = 5
+n_y = Y.shape[0]
 
-###### end your code
+model = models.Sequential()
+model.add(layers.Dense(n_h, input_shape=(2, ), activation='tanh', kernel_initializer='random_normal', bias_initializer='zeros'))
+model.add(layers.Dense(n_y, activation='sigmoid', kernel_initializer='random_normal', bias_initializer='zeros'))
+model.compile(optimizer=optimizers.RMSprop(lr=1.2), loss='binary_crossentropy', metrics=['accuracy'])
+model.fit(X.T, Y.T, epochs=20, batch_size=400)
 ```
 
 ```{.json .output n=8}
